@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.Controller;
+import controller.CadastroController;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
@@ -183,7 +183,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_sairActionPerformed
 
    
-    private Controller control;
+    private CadastroController control;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_acesso;
