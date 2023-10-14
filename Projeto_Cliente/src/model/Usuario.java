@@ -10,19 +10,26 @@ package model;
  */
 public class Usuario {
     private float cpf, valor_conta;
-    private String usuario, senha;
+    private String usuario, senha, tipo_de_conta;
 
-    public Usuario(float cpf, float valor_conta, String usuario, String senha) {
+    public Usuario(float cpf, float valor_conta, String usuario, String senha, String tipo_de_conta) {
         this.cpf = cpf;
         this.valor_conta = valor_conta;
         this.usuario = usuario;
         this.senha = senha;
+        this.tipo_de_conta = tipo_de_conta;
     }
 
+
     
-    
-    
-    
+    public String getTipo_de_conta() {
+        return tipo_de_conta;
+    }
+
+    public void setTipo_de_conta(String tipo_de_conta) {
+        this.tipo_de_conta = tipo_de_conta;
+    }
+
     
     public float getCpf() {
         return cpf;
