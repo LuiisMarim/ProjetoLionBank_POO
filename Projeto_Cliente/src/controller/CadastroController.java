@@ -1,4 +1,4 @@
-
+     
 package controller;
 
 import dao.Conexao;
@@ -15,7 +15,7 @@ import view.Cadastro;
 
 
 public class CadastroController {
-    private final Cadastro view;  
+    private Cadastro view;  
     
     public CadastroController(Cadastro view){
      this.view =view;   
@@ -24,11 +24,13 @@ public class CadastroController {
     public void salvaUsuario (){
         
         
-        String user = view.gettxt_nome().getText();
-        String senha = view.getpassword_senha().getText();
-        String tc = view.gettxt_conta().getText();
-        String valor = view.gettxt_valor_conta().getText();
-        String cpf = view.gettxt_cpf().getText();
+                
+        String user = view.getTxt_nome().getText();
+        String senha = view.getPassword_senha().getText();
+        String tc = view.getTxt_conta().getText();
+        String valor = view.getTxt_valor_conta().getText();
+        String cpf = view.getTxt_cpf().getText();
+        cpf = cpf.replaceAll("[^0-9]", "");
         
         Usuario usuario = new Usuario (user, senha, tc, valor, cpf);
        

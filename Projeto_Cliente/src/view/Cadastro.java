@@ -26,47 +26,7 @@ public class Cadastro extends javax.swing.JFrame {
         initComponents();
         controller = new CadastroController(this);
     }
-    
-       public JPasswordField getPassword_senha() {
-        return password_senha;
-    }
 
-    public void setPassword_senha(JPasswordField password_senha) {
-        this.password_senha = password_senha;
-    }
-
-    public JTextField getTxt_conta() {
-        return txt_conta;
-    }
-
-    public void setTxt_conta(JTextField txt_conta) {
-        this.txt_conta = txt_conta;
-    }
-
-    public JTextField getTxt_cpf() {
-        return txt_cpf;
-    }
-
-    public void setTxt_cpf(JTextField txt_cpf) {
-        this.txt_cpf = txt_cpf;
-    }
-
-    public JTextField getTxt_nome() {
-        return txt_nome;
-    }
-
-    public void setTxt_nome(JTextField txt_nome) {
-        this.txt_nome = txt_nome;
-    }
-
-    public JTextField getTxt_valor_conta() {
-        return txt_valor_conta;
-    }
-
-    public void setTxt_valor_conta(JTextField txt_valor_conta) {
-        this.txt_valor_conta = txt_valor_conta;
-    }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -236,7 +196,46 @@ public class Cadastro extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_voltarActionPerformed
 
- 
+        public JPasswordField getPassword_senha() {
+        return password_senha;
+    }
+
+    public void setPassword_senha(JPasswordField password_senha) {
+        this.password_senha = password_senha;
+    }
+
+    public JTextField getTxt_conta() {
+        return txt_conta;
+    }
+
+    public void setTxt_conta(JTextField txt_conta) {
+        this.txt_conta = txt_conta;
+    }
+
+    public JTextField getTxt_cpf() {
+        return txt_cpf;
+    }
+
+    public void setTxt_cpf(JTextField txt_cpf) {
+        this.txt_cpf = txt_cpf;
+    }
+
+    public JTextField getTxt_nome() {
+        return txt_nome;
+    }
+
+    public void setTxt_nome(JTextField txt_nome) {
+        this.txt_nome = txt_nome;
+    }
+
+    public JTextField getTxt_valor_conta() {
+        return txt_valor_conta;
+    }
+
+    public void setTxt_valor_conta(JTextField txt_valor_conta) {
+        this.txt_valor_conta = txt_valor_conta;
+    }
+    
 
   
 
