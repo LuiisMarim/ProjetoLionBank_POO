@@ -10,6 +10,7 @@ import model.Usuario;
 import view.Cadastro;
 import view.MenuPrincipal;
 import view.TelaLogin;
+import view.TelaLoginGerente;
 
 
 public class LoginController {
@@ -45,6 +46,11 @@ public class LoginController {
     public void exibe(){
        Cadastro viewCadastro = new Cadastro();
        viewCadastro.setVisible(true);
+    }
+    
+    public void exibeLoginGerente(){
+        TelaLoginGerente viewTelaLoginGerente  = new TelaLoginGerente();
+        viewTelaLoginGerente.setVisible(true);
     }
     
 }

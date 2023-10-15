@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import model.Gerente;
 import model.Usuario;
 
 public class UsuarioDAO {
@@ -25,7 +26,7 @@ public class UsuarioDAO {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, usuario.getUsuario());
             statement.setInt(2, usuario.getCpf());
-            statement.setString(3, usuario.getSenha());
+             statement.setString(3, usuario.getSenha());
             statement.setDouble(4, usuario.getValor_conta());
             statement.setString(5, usuario.getTipo_de_conta());
             statement.execute();
@@ -119,6 +120,23 @@ public class UsuarioDAO {
         
        return resultSet.next();
     }
+    
+    public boolean existeGerenteNoBancoPorUsuarioESenha(Gerente gerente) throws SQLException {
+        //DA P MOSTRAR AS COISAS COM ISSO AQUI (verificar usuarioDao)
+        String sql = "select * from gerente where gerente = '"+gerente.getGerente()+"' and senha_gerente = '"+gerente.getSenha_gerente()+"'";
+        
+        PreparedStatement statement = connection.prepareStatement(sql);
+        
+        statement.execute();
+        
+        ResultSet resultSet = statement.getResultSet();
+        
+        //JOptionPane.showMessageDialog(null, usuario.getUsuario());
+        
+        return resultSet.next();
+    }
+    
+    
 
     
     
