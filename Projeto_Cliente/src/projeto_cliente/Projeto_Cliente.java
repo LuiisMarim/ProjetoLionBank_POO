@@ -1,14 +1,14 @@
 
 package projeto_cliente;
 
-import view.Menu;
+import view.TelaInicial;
 
 
 public class Projeto_Cliente {
 
     
     public static void main(String[] args) {
-        Menu menu = new Menu();
+        TelaInicial menu = new TelaInicial();
         menu.setVisible(true);
     }
     

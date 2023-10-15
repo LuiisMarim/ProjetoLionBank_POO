@@ -46,7 +46,7 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txt_conta = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel2.setText("NOME:");
@@ -136,9 +136,7 @@ public class Cadastro extends javax.swing.JFrame {
                         .addComponent(password_senha)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel5)
                                 .addComponent(txt_conta))
                             .addGap(10, 10, 10))
                         .addComponent(jLabel2)

@@ -5,15 +5,19 @@
 package view;
 
 import controller.CadastroController;
+import controller.InicialController;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
 
-public class Menu extends javax.swing.JFrame {
+public class TelaInicial extends javax.swing.JFrame {
+
+    private final InicialController controller;
 
     
-    public Menu() {
+    public TelaInicial() {
         initComponents();
+        controller = new InicialController(this);
     }
 
     
@@ -157,8 +161,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_acessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acessoActionPerformed
-       Inicial viewInicial = new Inicial();
-       viewInicial.setVisible(true);
+       controller.exibe();
        
     }//GEN-LAST:event_btn_acessoActionPerformed
 

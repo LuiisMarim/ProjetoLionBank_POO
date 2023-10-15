@@ -21,6 +21,8 @@ public class CadastroController {
      this.view =view;   
     }
     
+      
+     
     public void salvaUsuario (){
         
         
@@ -28,9 +30,12 @@ public class CadastroController {
         String user = view.getTxt_nome().getText();
         String senha = view.getPassword_senha().getText();
         String tc = view.getTxt_conta().getText();
-        String valor = view.getTxt_valor_conta().getText();
-        String cpf = view.getTxt_cpf().getText();
-        cpf = cpf.replaceAll("[^0-9]", "");
+        String valor_c = view.getTxt_valor_conta().getText();
+        String cpf_t = view.getTxt_cpf().getText();
+        cpf_t = cpf_t.replaceAll("[^0-9]", "");
+        
+        double valor = Double.parseDouble(valor_c);
+        int cpf = Integer.parseInt(cpf_t);
         
         Usuario usuario = new Usuario (user, senha, tc, valor, cpf);
        
@@ -45,5 +50,7 @@ public class CadastroController {
         } 
        
     }
+    
+    
 }    
  

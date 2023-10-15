@@ -4,19 +4,28 @@
  */
 package view;
 
+import controller.LoginController;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Pichau
  */
-public class Inicial extends javax.swing.JFrame {
+public class TelaLogin extends javax.swing.JFrame {
+
+    private final LoginController controller;
 
     /**
      * Creates new form Inicial
      */
-    public Inicial() {
+    public TelaLogin() {
         initComponents();
+        controller = new LoginController(this);
     }
 
     /**
@@ -31,16 +40,15 @@ public class Inicial extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtLogin_usuario = new javax.swing.JTextField();
+        passwordSenha_login = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         btn_cadastro = new javax.swing.JButton();
         btn_entrar1 = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(896, 478));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -65,23 +73,17 @@ public class Inicial extends javax.swing.JFrame {
                 .addContainerGap(1321, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1546));
-
         jLabel1.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel1.setText("SENHA:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 228, 87, 26));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtLogin_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtLogin_usuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 170, 309, -1));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 260, 309, -1));
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel2.setText("USUÁRIO:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 140, -1, -1));
 
         btn_cadastro.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         btn_cadastro.setText("CADASTRAR-SE");
@@ -99,7 +101,6 @@ public class Inicial extends javax.swing.JFrame {
                 btn_cadastroActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, -1, -1));
 
         btn_entrar1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         btn_entrar1.setText("ENTRAR");
@@ -117,7 +118,6 @@ public class Inicial extends javax.swing.JFrame {
                 btn_entrar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_entrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
 
         btn_voltar.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         btn_voltar.setText("VOLTAR");
@@ -137,18 +137,57 @@ public class Inicial extends javax.swing.JFrame {
                 btn_voltarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 80, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(txtLogin_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordSenha_login, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btn_entrar1)
+                        .addGap(151, 151, 151)
+                        .addComponent(btn_voltar)))
+                .addGap(40, 40, 40)
+                .addComponent(btn_cadastro))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(jLabel2)
+                .addGap(12, 12, 12)
+                .addComponent(txtLogin_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(passwordSenha_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_entrar1)
+                    .addComponent(btn_voltar)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(210, 210, 210)
+                .addComponent(btn_cadastro))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtLogin_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLogin_usuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtLogin_usuarioActionPerformed
 
     private void btn_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastroActionPerformed
-       Cadastro viewCadastro = new Cadastro();
-       viewCadastro.setVisible(true);
+       controller.exibe();
     }//GEN-LAST:event_btn_cadastroActionPerformed
 
     private void btn_cadastroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cadastroMouseEntered
@@ -168,8 +207,11 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_entrar1MouseExited
 
     private void btn_entrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar1ActionPerformed
-       Principal viewPrincipal = new Principal();
-       viewPrincipal.setVisible(true);
+        try {
+            controller.autenticar();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_entrar1ActionPerformed
 
     private void btn_voltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_voltarMouseEntered
@@ -184,6 +226,25 @@ public class Inicial extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_voltarActionPerformed
 
+    public JPasswordField getPasswordSenha_login() {
+        return passwordSenha_login;
+    }
+
+    public void setPasswordSenha_login(JPasswordField passwordSenha_login) {
+        this.passwordSenha_login = passwordSenha_login;
+    }
+
+    public JTextField getTxtLogin_usuario() {
+        return txtLogin_usuario;
+    }
+
+    public void setTxtLogin_usuario(JTextField txtLogin_usuario) {
+        this.txtLogin_usuario = txtLogin_usuario;
+    }
+
+    
+    
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cadastro;
@@ -193,7 +254,7 @@ public class Inicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField passwordSenha_login;
+    private javax.swing.JTextField txtLogin_usuario;
     // End of variables declaration//GEN-END:variables
 }
