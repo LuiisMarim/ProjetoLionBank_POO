@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Usuario;
 
@@ -54,8 +55,52 @@ public class UsuarioDAO {
     
     }
     
-    public void delete (Usuario usuario){
+    public void delete (Usuario usuario) throws SQLException{
+        String sql = "delete from usuario where cpf = ? ";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, usuario.getCpf()); 
+        statement.execute();
+    }
     
+    public ArrayList<Usuario> selectAll() throws SQLException{
+        String sql = "select * from usuario  ";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        
+        return pesquisa(statement);
+    }
+
+    private ArrayList<Usuario> pesquisa(PreparedStatement statement) throws SQLException {
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+        statement.execute();
+        ResultSet resultSet = statement.getResultSet();
+        
+        while(resultSet.next()){
+            String usuario = resultSet.getString("usuario"); 
+            String senha  =  resultSet.getString("senha");
+            String tipo_de_conta =  resultSet.getString("tipo_de_conta");            
+            int  cpf = resultSet.getInt("cpf");
+            double valor_conta = resultSet.getDouble("valor_conta");
+            
+            Usuario usarioComDadosDoBanco = new Usuario(usuario,senha,tipo_de_conta, valor_conta,cpf);
+            usuarios.add(usarioComDadosDoBanco);
+            
+        }
+        
+        
+        return usuarios;
+    }
+    
+    public Usuario selectPorCpf(Usuario usuario) throws SQLException{
+        
+        String sql = "select * from usuario where cpf = ? ";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, usuario.getCpf());
+        
+        return pesquisa(statement).get(0);
+       
+        
+        
+        
     }
     
     public boolean existeNoBancoPorUsuarioESenha(Usuario usuario) throws SQLException {
