@@ -3,20 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import controller.GerenteController;
+import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Pichau
  */
 public class MenuPrincipalGerente extends javax.swing.JFrame {
-
+    private final GerenteController controller;
     /**
      * Creates new form MenuPrincipalGerente
      */
     public MenuPrincipalGerente() {
         initComponents();
+        controller = new GerenteController(this);
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,21 +34,154 @@ public class MenuPrincipalGerente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btn_voltar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btn_CadastroDeNovoClientePorGerente = new javax.swing.JButton();
+        btn_ExcluiCadastro = new javax.swing.JButton();
+        btn_NovaConta = new javax.swing.JButton();
+        btn_ExibeClientes = new javax.swing.JButton();
+        btn_ExibeSaldoCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
+        jLabel3.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("LION ");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("MENU ");
+
+        btn_voltar.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        btn_voltar.setText("VOLTAR");
+        btn_voltar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_voltar.setOpaque(true);
+        btn_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_voltarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_voltarMouseExited(evt);
+            }
+        });
+        btn_voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_voltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_voltar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(197, 197, 197)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_voltar)
+                .addGap(17, 17, 17))
         );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/BancoLogo.png"))); // NOI18N
+
+        btn_CadastroDeNovoClientePorGerente.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        btn_CadastroDeNovoClientePorGerente.setText("Cadastrar novo cliente");
+        btn_CadastroDeNovoClientePorGerente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_CadastroDeNovoClientePorGerente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_CadastroDeNovoClientePorGerenteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_CadastroDeNovoClientePorGerenteMouseExited(evt);
+            }
+        });
+        btn_CadastroDeNovoClientePorGerente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastroDeNovoClientePorGerenteActionPerformed(evt);
+            }
+        });
+
+        btn_ExcluiCadastro.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        btn_ExcluiCadastro.setText("Excluir cadastro de cliente");
+        btn_ExcluiCadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_ExcluiCadastro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_ExcluiCadastroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_ExcluiCadastroMouseExited(evt);
+            }
+        });
+        btn_ExcluiCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ExcluiCadastroActionPerformed(evt);
+            }
+        });
+
+        btn_NovaConta.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        btn_NovaConta.setText("Criar contas");
+        btn_NovaConta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_NovaConta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_NovaContaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_NovaContaMouseExited(evt);
+            }
+        });
+        btn_NovaConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_NovaContaActionPerformed(evt);
+            }
+        });
+
+        btn_ExibeClientes.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        btn_ExibeClientes.setText("Exibir clientes LION BANK");
+        btn_ExibeClientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_ExibeClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_ExibeClientesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_ExibeClientesMouseExited(evt);
+            }
+        });
+
+        btn_ExibeSaldoCliente.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        btn_ExibeSaldoCliente.setText("Exibir saldo cliente");
+        btn_ExibeSaldoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_ExibeSaldoCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_ExibeSaldoClienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_ExibeSaldoClienteMouseExited(evt);
+            }
+        });
+        btn_ExibeSaldoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ExibeSaldoClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,52 +189,158 @@ public class MenuPrincipalGerente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 766, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_CadastroDeNovoClientePorGerente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_ExcluiCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_NovaConta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_ExibeClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_ExibeSaldoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(103, 103, 103))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_CadastroDeNovoClientePorGerente)
+                        .addGap(38, 38, 38)
+                        .addComponent(btn_ExcluiCadastro)
+                        .addGap(46, 46, 46)
+                        .addComponent(btn_NovaConta)
+                        .addGap(52, 52, 52)
+                        .addComponent(btn_ExibeClientes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_ExibeSaldoCliente))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_voltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_voltarMouseEntered
+        btn_voltar.setBackground(Color.black);
+    }//GEN-LAST:event_btn_voltarMouseEntered
+
+    private void btn_voltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_voltarMouseExited
+        btn_voltar.setBackground(new Color (255,255,255));
+    }//GEN-LAST:event_btn_voltarMouseExited
+
+    private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void btn_CadastroDeNovoClientePorGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastroDeNovoClientePorGerenteActionPerformed
+        controller.exibeCadastro();
+    }//GEN-LAST:event_btn_CadastroDeNovoClientePorGerenteActionPerformed
+
+    private void btn_CadastroDeNovoClientePorGerenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CadastroDeNovoClientePorGerenteMouseEntered
+        btn_CadastroDeNovoClientePorGerente.setBackground(Color.black);
+    }//GEN-LAST:event_btn_CadastroDeNovoClientePorGerenteMouseEntered
+
+    private void btn_CadastroDeNovoClientePorGerenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CadastroDeNovoClientePorGerenteMouseExited
+         btn_CadastroDeNovoClientePorGerente.setBackground(new Color (255,255,255));
+    }//GEN-LAST:event_btn_CadastroDeNovoClientePorGerenteMouseExited
+
+    private void btn_ExcluiCadastroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExcluiCadastroMouseEntered
+        btn_ExcluiCadastro.setBackground(Color.black);
+    }//GEN-LAST:event_btn_ExcluiCadastroMouseEntered
+
+    private void btn_ExcluiCadastroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExcluiCadastroMouseExited
+        btn_ExcluiCadastro.setBackground(new Color (255,255,255));
+    }//GEN-LAST:event_btn_ExcluiCadastroMouseExited
+
+    private void btn_ExcluiCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExcluiCadastroActionPerformed
+        try {
+            controller.exibeDelete();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipalGerente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
+    }//GEN-LAST:event_btn_ExcluiCadastroActionPerformed
+
+    private void btn_NovaContaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_NovaContaMouseEntered
+         btn_NovaConta.setBackground(Color.black);
+    }//GEN-LAST:event_btn_NovaContaMouseEntered
+
+    private void btn_NovaContaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_NovaContaMouseExited
+        btn_NovaConta.setBackground(new Color (255,255,255));
+    }//GEN-LAST:event_btn_NovaContaMouseExited
+
+    private void btn_NovaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NovaContaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_NovaContaActionPerformed
+
+    private void btn_ExibeClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExibeClientesMouseEntered
+        btn_ExibeClientes.setBackground(Color.black);
+    }//GEN-LAST:event_btn_ExibeClientesMouseEntered
+
+    private void btn_ExibeClientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExibeClientesMouseExited
+        btn_ExibeClientes.setBackground(new Color (255,255,255));
+    }//GEN-LAST:event_btn_ExibeClientesMouseExited
+
+    private void btn_ExibeSaldoClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExibeSaldoClienteMouseEntered
+        btn_ExibeSaldoCliente.setBackground(Color.black);
+    }//GEN-LAST:event_btn_ExibeSaldoClienteMouseEntered
+
+    private void btn_ExibeSaldoClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExibeSaldoClienteMouseExited
+         btn_ExibeSaldoCliente.setBackground(new Color (255,255,255));
+    }//GEN-LAST:event_btn_ExibeSaldoClienteMouseExited
+
+    private void btn_ExibeSaldoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExibeSaldoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ExibeSaldoClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuPrincipalGerente().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(MenuPrincipalGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(MenuPrincipalGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(MenuPrincipalGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(MenuPrincipalGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new MenuPrincipalGerente().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_CadastroDeNovoClientePorGerente;
+    private javax.swing.JButton btn_ExcluiCadastro;
+    private javax.swing.JButton btn_ExibeClientes;
+    private javax.swing.JButton btn_ExibeSaldoCliente;
+    private javax.swing.JButton btn_NovaConta;
+    private javax.swing.JButton btn_voltar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

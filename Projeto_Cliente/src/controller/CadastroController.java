@@ -32,7 +32,8 @@ public class CadastroController {
         String tc = view.getTxt_conta().getText();
         String valor_c = view.getTxt_valor_conta().getText();
         String cpf_t = view.getTxt_cpf().getText();
-        cpf_t = cpf_t.replaceAll("[^0-9]", "");
+        cpf_t = cpf_t.replaceAll("[^0-9]", "").replaceAll("[.,]", "");
+        
         
         double valor = Double.parseDouble(valor_c);
         int cpf = Integer.parseInt(cpf_t);
