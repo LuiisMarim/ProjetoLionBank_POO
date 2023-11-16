@@ -44,7 +44,7 @@ public class MenuPrincipalGerente extends javax.swing.JFrame {
         btn_ExibeClientes = new javax.swing.JButton();
         btn_ExibeSaldoCliente = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -165,6 +165,11 @@ public class MenuPrincipalGerente extends javax.swing.JFrame {
                 btn_ExibeClientesMouseExited(evt);
             }
         });
+        btn_ExibeClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ExibeClientesActionPerformed(evt);
+            }
+        });
 
         btn_ExibeSaldoCliente.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         btn_ExibeSaldoCliente.setText("Exibir saldo cliente");
@@ -273,7 +278,7 @@ public class MenuPrincipalGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_NovaContaMouseExited
 
     private void btn_NovaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NovaContaActionPerformed
-        // TODO add your handling code here:
+        controller.exibeCriaContas();
     }//GEN-LAST:event_btn_NovaContaActionPerformed
 
     private void btn_ExibeClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExibeClientesMouseEntered
@@ -293,8 +298,12 @@ public class MenuPrincipalGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ExibeSaldoClienteMouseExited
 
     private void btn_ExibeSaldoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExibeSaldoClienteActionPerformed
-        // TODO add your handling code here:
+        controller.exibeSaldoGerente();
     }//GEN-LAST:event_btn_ExibeSaldoClienteActionPerformed
+
+    private void btn_ExibeClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExibeClientesActionPerformed
+        controller.exibeClientes();
+    }//GEN-LAST:event_btn_ExibeClientesActionPerformed
 
     /**
      * @param args the command line arguments

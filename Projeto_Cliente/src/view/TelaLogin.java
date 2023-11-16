@@ -50,7 +50,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(896, 478));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -72,20 +72,26 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(198, 198, 198)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1321, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel1.setText("SENHA:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 228, 87, 26));
 
         txtLogin_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLogin_usuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(txtLogin_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 170, 343, -1));
+        getContentPane().add(passwordSenha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 260, 343, -1));
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel2.setText("USUÁRIO:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 140, -1, -1));
 
         btn_cadastro.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         btn_cadastro.setText("CADASTRAR-SE");
@@ -103,6 +109,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 btn_cadastroActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 310, -1, -1));
 
         btn_entrar1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         btn_entrar1.setText("ENTRAR");
@@ -120,6 +127,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 btn_entrar1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_entrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
 
         btn_voltar.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         btn_voltar.setText("VOLTAR");
@@ -139,6 +147,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 btn_voltarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 310, -1, -1));
 
         btn_gerente.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         btn_gerente.setText("GERENTE");
@@ -156,62 +165,11 @@ public class TelaLogin extends javax.swing.JFrame {
                 btn_gerenteActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_gerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 43, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel4.setText("Conectar-se como gerente: ");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(btn_entrar1)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_voltar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_cadastro))
-                            .addComponent(passwordSenha_login)
-                            .addComponent(txtLogin_usuario))
-                        .addContainerGap(259, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(btn_gerente))
-                        .addGap(14, 14, 14))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(jLabel2)
-                .addGap(12, 12, 12)
-                .addComponent(txtLogin_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(passwordSenha_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_entrar1)
-                    .addComponent(btn_voltar)
-                    .addComponent(btn_cadastro)))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_gerente))
-        );
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 13, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

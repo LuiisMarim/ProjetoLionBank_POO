@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import model.Gerente;
 import model.Usuario;
 
@@ -26,7 +25,7 @@ public class UsuarioDAO {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, usuario.getUsuario());
             statement.setInt(2, usuario.getCpf());
-             statement.setString(3, usuario.getSenha());
+            statement.setString(3, usuario.getSenha());
             statement.setDouble(4, usuario.getValor_conta());
             statement.setString(5, usuario.getTipo_de_conta());
             statement.execute();
@@ -78,11 +77,13 @@ public class UsuarioDAO {
         while(resultSet.next()){
             String usuario = resultSet.getString("usuario"); 
             String senha  =  resultSet.getString("senha");
-            String tipo_de_conta =  resultSet.getString("tipo_de_conta");            
+            String tipo_de_conta =  resultSet.getString("tipo_conta_corrente");  
+            String tipoPoupa1 = resultSet.getString("tipo_conta_poupanca");
+            String tipoSala1 = resultSet.getString("tipo_conta_salario");
             int  cpf = resultSet.getInt("cpf");
             double valor_conta = resultSet.getDouble("valor_conta");
-            
-            Usuario usarioComDadosDoBanco = new Usuario(usuario,senha,tipo_de_conta, valor_conta,cpf);
+
+            Usuario usarioComDadosDoBanco = new Usuario(usuario,senha,tipo_de_conta,tipoSala1,tipoPoupa1, cpf ,valor_conta);
             usuarios.add(usarioComDadosDoBanco);
             
         }
@@ -122,7 +123,7 @@ public class UsuarioDAO {
     }
     
     public boolean existeGerenteNoBancoPorUsuarioESenha(Gerente gerente) throws SQLException {
-        //DA P MOSTRAR AS COISAS COM ISSO AQUI (verificar usuarioDao)
+
         String sql = "select * from gerente where gerente = '"+gerente.getGerente()+"' and senha_gerente = '"+gerente.getSenha_gerente()+"'";
         
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -136,8 +137,92 @@ public class UsuarioDAO {
         return resultSet.next();
     }
     
+    public void insertCorrente(Usuario usuario) throws SQLException{
+        
+        try (connection) {
+            String sql = "insert into usuario(usuario,cpf,senha,saldo_conta_corrente,tipo_conta_corrente) values(?,?,?,?,?); ";
+       
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, usuario.getUsuario());
+            statement.setInt(2, usuario.getCpf());
+            statement.setString(3, usuario.getSenha());
+            statement.setDouble(4, usuario.getValor_conta());
+            statement.setString(5, usuario.getTipo_de_conta());
+            statement.execute();
+            
+        }
+    }
     
-
+    public void updateNovaContaCorrente(Usuario usuario) throws SQLException{
+        try (connection){
+            String sql = "UPDATE usuario SET saldo_conta_corrente = ?, tipo_conta_corrente = ? WHERE cpf = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setDouble(1, usuario.getValor_conta());
+            statement.setString(2, usuario.getTipo_de_conta());
+            statement.setDouble(3, usuario.getCpf());
+            statement.executeUpdate();
+        }
     
+    
+    }
+    
+    
+        public void insertPoupanca(Usuario usuario) throws SQLException{
+        
+        try (connection) {
+            String sql = "insert into usuario(usuario,cpf,senha,saldo_conta_poupanca,tipo_conta_poupanca) values(?,?,?,?,?); ";
+       
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, usuario.getUsuario());
+            statement.setInt(2, usuario.getCpf());
+            statement.setString(3, usuario.getSenha());
+            statement.setDouble(4, usuario.getValor_conta());
+            statement.setString(5, usuario.getTipo_de_conta());
+            statement.execute();
+            
+        }
+        
+    }
+        
+        public void updateNovaContaPoupanca(Usuario usuario) throws SQLException{
+            try (connection){
+                String sql = "UPDATE usuario SET saldo_conta_poupanca = ?, tipo_conta_poupanca = ? WHERE cpf = ?";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setDouble(1, usuario.getValor_conta());
+                statement.setString(2, usuario.getTipo_de_conta()); 
+                statement.setDouble(3, usuario.getCpf());
+                statement.executeUpdate();
+            }
+    }
+    
+        public void insertSalario(Usuario usuario) throws SQLException{
+        
+        try (connection) {
+            String sql = "insert into usuario(usuario,cpf,senha,saldo_conta_salario,tipo_conta_salario) values(?,?,?,?,?); ";
+       
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, usuario.getUsuario());
+            statement.setInt(2, usuario.getCpf());
+            statement.setString(3, usuario.getSenha());
+            statement.setDouble(4, usuario.getValor_conta());
+            statement.setString(5, usuario.getTipo_de_conta());
+            statement.execute();
+            
+        }
+    
+        }
+    
+        public void updateNovaContaSalario(Usuario usuario) throws SQLException{
+        try (connection){
+            String sql = "UPDATE usuario SET saldo_conta_salario = ?, tipo_conta_salario = ? WHERE cpf = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setDouble(1, usuario.getValor_conta());
+            statement.setString(2, usuario.getTipo_de_conta());
+            statement.setDouble(3, usuario.getCpf());
+            statement.executeUpdate();
+        }
+    
+    
+    }
     
 }

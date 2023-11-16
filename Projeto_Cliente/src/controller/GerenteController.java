@@ -12,8 +12,11 @@ import java.util.ArrayList;
 
 import model.Usuario;
 import view.Cadastro;
+import view.CriarNovasContas;
 import view.MenuPrincipalGerente;
 import view.DeletarUsuario;
+import view.ExibirClientes;
+import view.SaldoGerente;
 
 
 
@@ -28,13 +31,6 @@ public class GerenteController {
     }
 
     
-
-    
-    
-    
-    
-    
-    
     public void exibeCadastro(){
        Cadastro viewCada = new Cadastro();
        viewCada.setVisible(true);
@@ -47,4 +43,19 @@ public class GerenteController {
     
     }
     
+    public void exibeClientes(){
+    
+        ExibirClientes viewExibe = new ExibirClientes();
+        viewExibe.setVisible(true);
+    }
+    
+    public void exibeCriaContas(){
+        CriarNovasContas viewContas = new CriarNovasContas();
+        viewContas.setVisible(true);
+    }
+    
+    public void exibeSaldoGerente(){
+        SaldoGerente viewSaldo = new SaldoGerente();
+        viewSaldo.setVisible(true);
+    }
 }

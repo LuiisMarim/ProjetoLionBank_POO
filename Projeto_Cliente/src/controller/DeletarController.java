@@ -34,6 +34,7 @@ public class DeletarController {
         Usuario usuarioSelecionado = usuarioDao.selectPorCpf(usuario);
         usuarioDao.delete(usuarioSelecionado);
         JOptionPane.showMessageDialog(null, "Usuario Apagado com Sucesso !");
+        view.getTextoClientes().setText("");
           
               
     }

@@ -121,6 +121,12 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel6.setText("TIPO DE CONTA:");
 
+        txt_conta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_contaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -193,6 +199,10 @@ public class Cadastro extends javax.swing.JFrame {
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void txt_contaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_contaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_contaActionPerformed
 
         public JPasswordField getPassword_senha() {
         return password_senha;

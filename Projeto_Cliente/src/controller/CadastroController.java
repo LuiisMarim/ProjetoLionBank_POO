@@ -37,16 +37,31 @@ public class CadastroController {
         
         double valor = Double.parseDouble(valor_c);
         int cpf = Integer.parseInt(cpf_t);
+        String corrente = "corrente";
+        String poupanca = "poupanca";
+        String salario = "salario";
         
         Usuario usuario = new Usuario (user, senha, tc, valor, cpf);
        
         try {
             Connection conexao = new Conexao().getConnection();
             UsuarioDAO usuarioDao =  new UsuarioDAO(conexao);
-            usuarioDao.insert(usuario);
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso !");
-            
-        } catch (SQLException ex) {
+            if (tc.equals(corrente)){
+                
+                usuarioDao.insertCorrente(usuario);
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso !");
+                
+            }else if(tc.equals(poupanca)){
+                
+                usuarioDao.insertPoupanca(usuario);
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso !");
+                
+            }else if(tc.equals(salario)){
+                usuarioDao.insertSalario(usuario);
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso !");      
+            }
+        } 
+        catch (SQLException ex) {
             Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
         } 
        

@@ -4,13 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/view/MenuPrincipalGerente.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/view/TelaLogin.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/view/TelaLoginGerente.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/controller/CriaContasController.java</file>
             <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/dao/UsuarioDAO.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/controller/LoginController.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/view/CriarNovasContas.java</file>
             <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/model/Usuario.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/controller/LoginGerenteController.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/model/Gerente.java</file>
         </group>
     </open-files>
 </project-private>

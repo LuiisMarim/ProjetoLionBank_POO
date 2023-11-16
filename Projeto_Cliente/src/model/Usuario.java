@@ -10,9 +10,33 @@ package model;
  */
 public class Usuario {
     
-    private String usuario, senha, tipo_de_conta;
+    private String usuario, senha, tipo_de_conta, tipoSala, tipoPoupa, tipoCorre;
     private int  cpf;
     private double valor_conta;
+
+    public String getTipoSala() {
+        return tipoSala;
+    }
+
+    public void setTipoSala(String tipoSala) {
+        this.tipoSala = tipoSala;
+    }
+
+    public String getTipoPoupa() {
+        return tipoPoupa;
+    }
+
+    public void setTipoPoupa(String tipoPoupa) {
+        this.tipoPoupa = tipoPoupa;
+    }
+
+    public String getTipoCorre() {
+        return tipoCorre;
+    }
+
+    public void setTipoCorre(String tipoCorre) {
+        this.tipoCorre = tipoCorre;
+    }
     
 
     public String getUsuario() {
@@ -74,6 +98,35 @@ public class Usuario {
 
     public Usuario() {
     }
+
+    public Usuario(String usuario, String senha, String tipo_de_conta, String tipoSala, String tipoPoupa, int cpf, double valor_conta) {
+        this.usuario = usuario;
+        this.senha = senha;
+        this.tipo_de_conta = tipo_de_conta;
+        this.tipoSala = tipoSala;
+        this.tipoPoupa = tipoPoupa;
+        this.cpf = cpf;
+        this.valor_conta = valor_conta;
+    }
+
+    public Usuario( double valor_conta , String tipo_de_conta, int cpf) {
+        this.tipo_de_conta = tipo_de_conta;
+        this.valor_conta = valor_conta;
+        this.cpf = cpf;
+    }
+
+    public Usuario(double valor_conta) {
+        this.valor_conta = valor_conta;
+    }
+    
+    
+    
+
+
+ 
+
+  
+ 
     
     
     
