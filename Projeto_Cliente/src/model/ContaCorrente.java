@@ -4,6 +4,13 @@
  */
 package model;
 
+import dao.Conexao;
+import dao.UsuarioDAO;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import view.CriarNovasContas;
+
 /**
  *
  * @author Pichau

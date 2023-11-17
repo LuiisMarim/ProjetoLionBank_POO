@@ -39,4 +39,28 @@ public class SaldoGerenteController {
             view.getPainel_Clientes().setText(sb.toString());
            
     }
+       public void exibeSaldos() throws SQLException{
+           
+       String cpf_t = view.getTxt_cpf().getText();
+       int cpf = Integer.parseInt(cpf_t);
+       Usuario usuario = new Usuario (cpf);
+       Connection conexao =  new Conexao().getConnection();  
+       UsuarioDAO usuarioDao = new UsuarioDAO(conexao);
+       Usuario usuarioSelecionado = usuarioDao.selectPorCpfValores(usuario);
+       StringBuilder sb = new StringBuilder();
+       if (usuarioSelecionado != null) {
+        sb.append("Saldos de conta (CORRENTE, SALÁRIO, POUPANÇA): ")
+            .append(usuarioSelecionado.getValorCorre()).append(" - ")
+            .append(usuarioSelecionado.getValorSala()).append(" - ")
+            .append(usuarioSelecionado.getValorPoupa());
+        view.getPainel_Saldo().setText(sb.toString());
+        } else {
+        view.getPainel_Saldo().setText("Usuário não encontrado");
+        }
+       
+       
+       
+       
+       
+}
 }

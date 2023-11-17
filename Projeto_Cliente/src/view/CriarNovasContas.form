@@ -41,16 +41,14 @@
                               <Component id="Txt_cpf" min="-2" pref="189" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="btn_MostraClientes2" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="btn_MostraClientes1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btn_MostraClientes3" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btn_MostraClientes2" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="btn_MostraClientes1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_MostraClientes3" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="713" max="-2" attributes="0"/>
@@ -219,7 +217,7 @@
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Rockwell" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Digite o CPF: "/>
       </Properties>
@@ -229,7 +227,7 @@
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Rockwell" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Valor inicial: "/>
       </Properties>
@@ -287,7 +285,7 @@
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
+          <Font name="Rockwell" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Clique no bot&#xe3;o para criar: "/>
       </Properties>

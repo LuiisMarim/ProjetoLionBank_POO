@@ -12,7 +12,7 @@ public class Usuario {
     
     private String usuario, senha, tipo_de_conta, tipoSala, tipoPoupa, tipoCorre;
     private int  cpf;
-    private double valor_conta;
+    private double valor_conta, valorCorre, valorPoupa, ValorSala;
 
     public String getTipoSala() {
         return tipoSala;
@@ -78,6 +78,33 @@ public class Usuario {
     public void setCpf(int cpf) {
         this.cpf = cpf;
     }
+
+    public double getValorCorre() {
+        return valorCorre;
+    }
+
+    public void setValorCorre(double valorCorre) {
+        this.valorCorre = valorCorre;
+    }
+
+    public double getValorPoupa() {
+        return valorPoupa;
+    }
+
+    public void setValorPoupa(double valorPoupa) {
+        this.valorPoupa = valorPoupa;
+    }
+
+    public double getValorSala() {
+        return ValorSala;
+    }
+
+    public void setValorSala(double ValorSala) {
+        this.ValorSala = ValorSala;
+    }
+    
+    
+    
 
     public Usuario(String usuario, String senha, String tipo_de_conta, double valor_conta, int cpf) {
         this.usuario = usuario;
