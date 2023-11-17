@@ -145,6 +145,11 @@ public class Usuario {
     public Usuario(double valor_conta) {
         this.valor_conta = valor_conta;
     }
+
+    public Usuario(double valor_conta,String tipo_de_conta) {
+        this.tipo_de_conta = tipo_de_conta;
+        this.valor_conta = valor_conta;
+    }
     
     
     

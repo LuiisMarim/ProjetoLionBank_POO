@@ -53,9 +53,9 @@ public class SaldoGerenteController {
             .append(usuarioSelecionado.getValorCorre()).append(" - ")
             .append(usuarioSelecionado.getValorSala()).append(" - ")
             .append(usuarioSelecionado.getValorPoupa());
-        view.getPainel_Saldo().setText(sb.toString());
+            view.getPainel_Saldo().setText(sb.toString());
         } else {
-        view.getPainel_Saldo().setText("Usuário não encontrado");
+            view.getPainel_Saldo().setText("Usuário não encontrado");
         }
        
        

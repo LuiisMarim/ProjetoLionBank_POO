@@ -4,28 +4,22 @@
  */
 package view;
 
-import controller.ExibeContaClienteController;
 import java.awt.Color;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 
 /**
  *
  * @author Pichau
  */
-public class ExibeContas extends javax.swing.JFrame {
-
-    private final ExibeContaClienteController controller;
+public class Deposito extends javax.swing.JFrame {
 
     /**
-     * Creates new form ExibeContas
+     * Creates new form Deposito
      */
-    public ExibeContas() {
+    public Deposito() {
         initComponents();
-        controller = new ExibeContaClienteController(this);
     }
 
     /**
@@ -42,13 +36,17 @@ public class ExibeContas extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Painel_Clientes = new javax.swing.JTextArea();
+        Painel_saldo = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        btn_MostraClientes = new javax.swing.JButton();
         Txt_cpf = new javax.swing.JTextField();
+        Btn_exibe = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
+        Txt_valor = new javax.swing.JTextField();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton4 = new javax.swing.JToggleButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -56,9 +54,9 @@ public class ExibeContas extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("LION ");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("EXIBE");
+        jLabel4.setText("DEPOSITO");
 
         btn_voltar.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         btn_voltar.setText("VOLTAR");
@@ -86,54 +84,48 @@ public class ExibeContas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_voltar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 8, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_voltar, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel4)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(165, 165, 165)
+                .addGap(167, 167, 167)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_voltar)
-                .addGap(23, 23, 23))
+                .addGap(22, 22, 22))
         );
 
-        Painel_Clientes.setColumns(20);
-        Painel_Clientes.setRows(5);
-        jScrollPane1.setViewportView(Painel_Clientes);
+        Painel_saldo.setColumns(20);
+        Painel_saldo.setRows(5);
+        jScrollPane1.setViewportView(Painel_saldo);
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        jLabel5.setText("Digite seu CPF:");
+        jLabel5.setText("CPF: ");
 
-        btn_MostraClientes.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        btn_MostraClientes.setText("Mostrar Contas");
-        btn_MostraClientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btn_MostraClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_MostraClientesActionPerformed(evt);
-            }
-        });
-
-        Txt_cpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Txt_cpfActionPerformed(evt);
-            }
-        });
+        Btn_exibe.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        Btn_exibe.setText("EXIBIR SALDO EM CONTAS");
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        jLabel6.setText("Valores preenchidos como \"null\" indicam que a conta ainda não foi aberta. ");
+        jLabel6.setText("VALOR PARA DÉBITO:");
+
+        jToggleButton2.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jToggleButton2.setText("CONTA CORRENTE");
+
+        jToggleButton3.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jToggleButton3.setText("CONTA SALÁRIO");
+
+        jToggleButton4.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jToggleButton4.setText("CONTA POUPANÇA");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,35 +133,52 @@ public class ExibeContas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_MostraClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(445, 445, 445))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jToggleButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                .addComponent(jToggleButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jToggleButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Btn_exibe, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_MostraClientes)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_exibe))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToggleButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jToggleButton3)
+                .addGap(18, 18, 18)
+                .addComponent(jToggleButton4)
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -186,20 +195,6 @@ public class ExibeContas extends javax.swing.JFrame {
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btn_voltarActionPerformed
-
-    private void btn_MostraClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MostraClientesActionPerformed
-
-        try {
-            controller.exibeContaClientePorCpf();
-        } catch (SQLException ex) {
-            Logger.getLogger(ExibeContas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_btn_MostraClientesActionPerformed
-
-    private void Txt_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_cpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Txt_cpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,30 +213,38 @@ public class ExibeContas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ExibeContas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Deposito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ExibeContas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Deposito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ExibeContas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Deposito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ExibeContas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Deposito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ExibeContas().setVisible(true);
+                new Deposito().setVisible(true);
             }
         });
     }
 
-    public JTextArea getPainel_Clientes() {
-        return Painel_Clientes;
+    public JToggleButton getBtn_exibe() {
+        return Btn_exibe;
     }
 
-    public void setPainel_Clientes(JTextArea Painel_Clientes) {
-        this.Painel_Clientes = Painel_Clientes;
+    public void setBtn_exibe(JToggleButton Btn_exibe) {
+        this.Btn_exibe = Btn_exibe;
+    }
+
+    public JTextArea getPainel_saldo() {
+        return Painel_saldo;
+    }
+
+    public void setPainel_saldo(JTextArea Painel_saldo) {
+        this.Painel_saldo = Painel_saldo;
     }
 
     public JTextField getTxt_cpf() {
@@ -251,14 +254,23 @@ public class ExibeContas extends javax.swing.JFrame {
     public void setTxt_cpf(JTextField Txt_cpf) {
         this.Txt_cpf = Txt_cpf;
     }
-    
-    
-    
 
+    public JTextField getTxt_valor() {
+        return Txt_valor;
+    }
+
+    public void setTxt_valor(JTextField Txt_valor) {
+        this.Txt_valor = Txt_valor;
+    }
+
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea Painel_Clientes;
+    private javax.swing.JToggleButton Btn_exibe;
+    private javax.swing.JTextArea Painel_saldo;
     private javax.swing.JTextField Txt_cpf;
-    private javax.swing.JButton btn_MostraClientes;
+    private javax.swing.JTextField Txt_valor;
     private javax.swing.JButton btn_voltar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -266,5 +278,8 @@ public class ExibeContas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
     // End of variables declaration//GEN-END:variables
 }

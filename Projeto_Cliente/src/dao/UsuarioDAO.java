@@ -110,7 +110,7 @@ public class UsuarioDAO {
     PreparedStatement statement = connection.prepareStatement(sql);
     statement.setInt(1, usuario.getCpf());
 
-    ResultSet resultadosDoBanco = statement.executeQuery(); // Executa a consulta e obtém os resultados
+    ResultSet resultadosDoBanco = statement.executeQuery(); 
 
     if (resultadosDoBanco.next()) {
         Usuario usuarioSelecionado = new Usuario();
@@ -123,6 +123,26 @@ public class UsuarioDAO {
         return null; 
     }
 }
+    
+    public Usuario selectPorCpfContas(Usuario usuario) throws SQLException{
+        String sql = "select * from usuario where cpf = ? ";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, usuario.getCpf());
+
+        ResultSet resultadosDoBanco = statement.executeQuery();
+        
+        if (resultadosDoBanco.next()) {
+        Usuario usuarioSelecionado = new Usuario();
+        usuarioSelecionado.setTipoCorre(resultadosDoBanco.getString("tipo_conta_corrente"));
+        usuarioSelecionado.setTipoSala(resultadosDoBanco.getString("tipo_conta_salario"));
+        usuarioSelecionado.setTipoPoupa(resultadosDoBanco.getString("tipo_conta_poupanca"));
+
+        return usuarioSelecionado;
+        }else{
+            return null;
+                }    
+    
+    }
     
     
     
@@ -167,7 +187,7 @@ public class UsuarioDAO {
             statement.setString(1, usuario.getUsuario());
             statement.setInt(2, usuario.getCpf());
             statement.setString(3, usuario.getSenha());
-            statement.setDouble(4, usuario.getValorCorre());
+            statement.setDouble(4, usuario.getValor_conta());
             statement.setString(5, usuario.getTipo_de_conta());
             statement.execute();
             
@@ -178,7 +198,7 @@ public class UsuarioDAO {
         try (connection){
             String sql = "UPDATE usuario SET saldo_conta_corrente = ?, tipo_conta_corrente = ? WHERE cpf = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setDouble(1, usuario.getValorCorre());
+            statement.setDouble(1, usuario.getValor_conta());
             statement.setString(2, usuario.getTipo_de_conta());
             statement.setDouble(3, usuario.getCpf());
             statement.executeUpdate();
@@ -197,7 +217,7 @@ public class UsuarioDAO {
             statement.setString(1, usuario.getUsuario());
             statement.setInt(2, usuario.getCpf());
             statement.setString(3, usuario.getSenha());
-            statement.setDouble(4, usuario.getValorPoupa());
+            statement.setDouble(4, usuario.getValor_conta());
             statement.setString(5, usuario.getTipo_de_conta());
             statement.execute();
             
@@ -209,7 +229,7 @@ public class UsuarioDAO {
             try (connection){
                 String sql = "UPDATE usuario SET saldo_conta_poupanca = ?, tipo_conta_poupanca = ? WHERE cpf = ?";
                 PreparedStatement statement = connection.prepareStatement(sql);
-                statement.setDouble(1, usuario.getValorPoupa());
+                statement.setDouble(1, usuario.getValor_conta());
                 statement.setString(2, usuario.getTipo_de_conta()); 
                 statement.setDouble(3, usuario.getCpf());
                 statement.executeUpdate();
@@ -225,7 +245,7 @@ public class UsuarioDAO {
             statement.setString(1, usuario.getUsuario());
             statement.setInt(2, usuario.getCpf());
             statement.setString(3, usuario.getSenha());
-            statement.setDouble(4, usuario.getValorSala());
+            statement.setDouble(4, usuario.getValor_conta());
             statement.setString(5, usuario.getTipo_de_conta());
             statement.execute();
             
@@ -237,7 +257,7 @@ public class UsuarioDAO {
         try (connection){
             String sql = "UPDATE usuario SET saldo_conta_salario = ?, tipo_conta_salario = ? WHERE cpf = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setDouble(1, usuario.getValorSala());
+            statement.setDouble(1, usuario.getValor_conta());
             statement.setString(2, usuario.getTipo_de_conta());
             statement.setDouble(3, usuario.getCpf());
             statement.executeUpdate();

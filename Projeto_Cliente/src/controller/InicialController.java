@@ -17,4 +17,6 @@ public class InicialController {
        viewTelaLogin.setVisible(true);
         
     }
+    
+    
 }

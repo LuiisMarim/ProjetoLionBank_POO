@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import controller.MenuPrincipalController;
 import java.awt.Color;
 /**
  *
@@ -10,11 +11,14 @@ import java.awt.Color;
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
+    private final MenuPrincipalController controller;
+
     /**
      * Creates new form Principal
      */
     public MenuPrincipal() {
         initComponents();
+        controller = new MenuPrincipalController(this);
     }
 
     /**
@@ -47,6 +51,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jButton3.setText("EXIBIR CONTAS");
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jButton4.setText("DÉBITO");
@@ -182,6 +191,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        controller.showContas();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

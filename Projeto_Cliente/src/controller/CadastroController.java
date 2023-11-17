@@ -18,7 +18,7 @@ public class CadastroController {
     private Cadastro view;  
     
     public CadastroController(Cadastro view){
-     this.view =view;   
+     this.view = view;   
     }
     
       
