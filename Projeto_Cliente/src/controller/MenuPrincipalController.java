@@ -4,6 +4,7 @@
  */
 package controller;
 
+import view.Deposito;
 import view.ExibeContas;
 import view.MenuPrincipal;
 
@@ -22,6 +23,12 @@ public class MenuPrincipalController {
     
         ExibeContas exibeContas = new ExibeContas();
         exibeContas.setVisible(true);
+    
+    }
+    
+    public void showDeposito(){
+        Deposito exibeDeposito = new Deposito();
+        exibeDeposito.setVisible(true);
     
     }
     

@@ -4,7 +4,11 @@
  */
 package view;
 
+import controller.DepositoController;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
@@ -15,11 +19,14 @@ import javax.swing.JToggleButton;
  */
 public class Deposito extends javax.swing.JFrame {
 
+    private final DepositoController controller;
+
     /**
      * Creates new form Deposito
      */
     public Deposito() {
         initComponents();
+        controller = new DepositoController(this);
     }
 
     /**
@@ -46,7 +53,7 @@ public class Deposito extends javax.swing.JFrame {
         jToggleButton3 = new javax.swing.JToggleButton();
         jToggleButton4 = new javax.swing.JToggleButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -113,19 +120,39 @@ public class Deposito extends javax.swing.JFrame {
 
         Btn_exibe.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         Btn_exibe.setText("EXIBIR SALDO EM CONTAS");
+        Btn_exibe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_exibeActionPerformed(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        jLabel6.setText("VALOR PARA DÉBITO:");
+        jLabel6.setText("VALOR PARA DEPOSITO:");
 
         jToggleButton2.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jToggleButton2.setText("CONTA CORRENTE");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
 
         jToggleButton3.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jToggleButton3.setText("CONTA SALÁRIO");
+        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton3ActionPerformed(evt);
+            }
+        });
 
         jToggleButton4.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jToggleButton4.setText("CONTA POUPANÇA");
+        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,7 +163,7 @@ public class Deposito extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(Txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(445, 445, 445))
@@ -195,6 +222,38 @@ public class Deposito extends javax.swing.JFrame {
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void Btn_exibeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_exibeActionPerformed
+        try {
+            controller.exibeSaldos();
+        } catch (SQLException ex) {
+            Logger.getLogger(Deposito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Btn_exibeActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        try {
+            controller.entradaDeDinheiroCorrente();
+        } catch (SQLException ex) {
+            Logger.getLogger(Deposito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+        try {
+            controller.entradaDeDinheiroSalario();
+        } catch (SQLException ex) {
+            Logger.getLogger(Deposito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jToggleButton3ActionPerformed
+
+    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+        try {
+            controller.entradaDeDinheiroPoupanca();
+        } catch (SQLException ex) {
+            Logger.getLogger(Deposito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jToggleButton4ActionPerformed
 
     /**
      * @param args the command line arguments
