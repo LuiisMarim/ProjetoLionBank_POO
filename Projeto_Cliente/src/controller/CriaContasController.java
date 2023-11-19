@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.ContaCorrente;
+import model.ContaPoupanca;
+import model.ContaSalario;
 import model.Usuario;
 import view.Cadastro;
 import view.CriarNovasContas;
@@ -51,22 +54,10 @@ public class CriaContasController {
         String valor_c = view.getTxt_valor().getText();
         double valor = Double.parseDouble(valor_c);
         int cpf = Integer.parseInt(cpf_t);
-        String corre = "corrente";
         
-        Usuario usuario = new Usuario (valor,corre,cpf);
-        Usuario usuarioCPF = new Usuario(cpf);
-            Connection conexao =  new Conexao().getConnection(); 
-            UsuarioDAO usuarioDao = new UsuarioDAO(conexao);
-            Usuario usuarioSelecionado = usuarioDao.selectPorCpf(usuarioCPF);
-            if (usuarioSelecionado != null){
-                usuarioDao.updateNovaContaCorrente(usuario);
-                JOptionPane.showMessageDialog(null, "Conta Corrente Criada Com Sucesso !");
-            view.getPainel_Clientes().setText("");
-            }else{
-                JOptionPane.showMessageDialog(null, "Conta Corrente Criada Com Sucesso !");
-            } 
-         
-        
+        ContaCorrente criaConta = new ContaCorrente();
+        criaConta.criaContaCorre(valor, cpf);
+        view.getPainel_Clientes().setText("");        
      }
      
        public void criaContaPoupanca() throws SQLException{
@@ -75,22 +66,9 @@ public class CriaContasController {
         String valor_c = view.getTxt_valor().getText();
         double valor = Double.parseDouble(valor_c);
         int cpf = Integer.parseInt(cpf_t);
-        String corre = "poupança";
-        
-        Usuario usuario = new Usuario (valor,corre,cpf);
-        Usuario usuarioCPF = new Usuario(cpf);
-       
-            Connection conexao =  new Conexao().getConnection();  
-            UsuarioDAO usuarioDao = new UsuarioDAO(conexao);
-            Usuario usuarioSelecionado = usuarioDao.selectPorCpf(usuarioCPF);
-            if (usuarioSelecionado != null){
-                usuarioDao.updateNovaContaPoupanca(usuario);
-                JOptionPane.showMessageDialog(null, "Conta Poupança Criada Com Sucesso !");
-                view.getPainel_Clientes().setText("");
-            }else{
-                JOptionPane.showMessageDialog(null, "Conta Poupança não pode ser criada !");
-            }
-    
+        ContaPoupanca criaConta = new ContaPoupanca();
+        criaConta.criaContaPoupa(valor, cpf);
+        view.getPainel_Clientes().setText("");
        }
         
        public void criaContaSalario() throws SQLException{
@@ -99,20 +77,9 @@ public class CriaContasController {
         String valor_c = view.getTxt_valor().getText();
         double valor = Double.parseDouble(valor_c);
         int cpf = Integer.parseInt(cpf_t);
-        String corre = "salário";
-        
-        Usuario usuario = new Usuario (valor,corre,cpf);
-        Usuario usuarioCPF = new Usuario(cpf);
-        Connection conexao =  new Conexao().getConnection();  
-        UsuarioDAO usuarioDao = new UsuarioDAO(conexao);
-        Usuario usuarioSelecionado = usuarioDao.selectPorCpf(usuarioCPF);
-        if (usuarioSelecionado != null){
-            usuarioDao.updateNovaContaSalario(usuario);
-            JOptionPane.showMessageDialog(null, "Conta Salário Criada Com Sucesso !");
-            view.getPainel_Clientes().setText("");
-        }else{
-            JOptionPane.showMessageDialog(null, "Conta Salário não pode ser criada !");
-        }    
+        ContaSalario criaConta = new ContaSalario();
+        criaConta.criaContaSalario(valor, cpf);
+        view.getPainel_Clientes().setText(""); 
      } 
        
          

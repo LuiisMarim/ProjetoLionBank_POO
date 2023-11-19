@@ -150,6 +150,16 @@ public class Usuario {
         this.tipo_de_conta = tipo_de_conta;
         this.valor_conta = valor_conta;
     }
+
+    public Usuario(int cpf, String senha) {
+        this.cpf = cpf;
+        this.senha= senha;
+    }
+
+    public Usuario(String senha) {
+        this.senha = senha;
+    }
+    
     
     
     

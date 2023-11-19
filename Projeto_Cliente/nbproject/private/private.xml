@@ -4,13 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/controller/MenuPrincipalController.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/controller/SaldoGerenteController.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/view/Deposito.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/view/Debito.java</file>
             <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/dao/UsuarioDAO.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/controller/ExibeContaClienteController.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/controller/LoginController.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/controller/DebitoController.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/model/Usuario.java</file>
             <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/controller/DepositoController.java</file>
             <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/view/MenuPrincipal.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/view/SaldoGerente.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/ProjetoLionBank_POO/Projeto_Cliente/src/model/ContaCorrente.java</file>
         </group>
     </open-files>
 </project-private>

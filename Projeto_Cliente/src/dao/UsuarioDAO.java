@@ -163,6 +163,22 @@ public class UsuarioDAO {
        return resultSet.next();
     }
     
+      public boolean existeNoBancoPorSenha(Usuario usuario) throws SQLException {
+        //DA P MOSTRAR AS COISAS COM ISSO AQUI (verificar usuarioDao)
+        String sql = "select * from usuario where  senha = ?";
+        
+        PreparedStatement statement = connection.prepareStatement(sql);
+       
+        statement.setString(1, usuario.getSenha());
+        statement.execute();
+        
+        ResultSet resultSet = statement.getResultSet();
+        
+        //JOptionPane.showMessageDialog(null, usuario.getUsuario());
+        
+       return resultSet.next();
+    }
+    
     public boolean existeGerenteNoBancoPorUsuarioESenha(Gerente gerente) throws SQLException {
 
         String sql = "select * from gerente where gerente = '"+gerente.getGerente()+"' and senha_gerente = '"+gerente.getSenha_gerente()+"'";
@@ -177,6 +193,30 @@ public class UsuarioDAO {
         
         return resultSet.next();
     }
+    
+     public Usuario existeNoBancoPorCPFESenha(Usuario usuario) throws SQLException {
+        String sql = "select * from usuario where cpf = ? and senha = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, usuario.getCpf());
+        statement.setString(2, usuario.getSenha());
+        ResultSet resultadosDoBanco = statement.executeQuery(); 
+
+        if (resultadosDoBanco.next()) {
+            Usuario usuarioSelecionado = new Usuario();
+            usuarioSelecionado.setValorCorre(resultadosDoBanco.getDouble("saldo_conta_corrente"));
+            usuarioSelecionado.setValorSala(resultadosDoBanco.getDouble("saldo_conta_salario"));
+            usuarioSelecionado.setValorPoupa(resultadosDoBanco.getDouble("saldo_conta_poupanca"));
+
+            return usuarioSelecionado;
+        } else {
+            return null; 
+        }
+    }
+    
+    
+    
+    
+    
     
     public void insertCorrente(Usuario usuario) throws SQLException{
         

@@ -5,6 +5,7 @@ import dao.Conexao;
 import dao.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import model.Usuario;
 import view.Deposito;
 
@@ -27,8 +28,8 @@ public class DepositoController {
         StringBuilder sb = new StringBuilder();
         if (usuarioSelecionado != null) {
          sb.append("Saldos de conta (CORRENTE, SALÁRIO, POUPANÇA): ")
-             .append(usuarioSelecionado.getValorCorre()).append(" - ")
-             .append(usuarioSelecionado.getValorSala()).append(" - ")
+             .append(usuarioSelecionado.getValorCorre()).append(" , ")
+             .append(usuarioSelecionado.getValorSala()).append(" , ")
              .append(usuarioSelecionado.getValorPoupa());
              view.getPainel_saldo().setText(sb.toString());
          } else {
@@ -57,6 +58,7 @@ public class DepositoController {
                 Usuario usuarioDepositado = new Usuario (conta,corre,cpf);
                 usuarioDao.updateNovaContaCorrente(usuarioDepositado);
                 view.getPainel_saldo().setText("");
+                JOptionPane.showMessageDialog(null, "Seu novo saldo para conta corrente é: "+ conta);
             
             }else{
                 view.getPainel_saldo().setText("Conta não existe! Entre em contato com o seu Gerente para abrir uma nova conta LION CORRENTE");
@@ -85,6 +87,7 @@ public class DepositoController {
                 Usuario usuarioDepositado = new Usuario (conta,corre,cpf);
                 usuarioDao.updateNovaContaSalario(usuarioDepositado);
                 view.getPainel_saldo().setText("");
+                JOptionPane.showMessageDialog(null, "Seu novo saldo para conta salário é: "+ conta);
             
             }else{
                 view.getPainel_saldo().setText("Conta não existe! Entre em contato com o seu Gerente para abrir uma nova conta LION SALÁRIO");
@@ -113,6 +116,7 @@ public class DepositoController {
                 Usuario usuarioDepositado = new Usuario (conta,corre,cpf);
                 usuarioDao.updateNovaContaPoupanca(usuarioDepositado);
                 view.getPainel_saldo().setText("");
+                JOptionPane.showMessageDialog(null, "Seu novo saldo para conta poupança é: "+ conta);
             
             }else{
                 view.getPainel_saldo().setText("Conta não existe! Entre em contato com o seu Gerente para abrir uma nova conta LION POUPANÇA");
