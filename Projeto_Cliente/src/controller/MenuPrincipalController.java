@@ -7,6 +7,7 @@ package controller;
 import view.Debito;
 import view.Deposito;
 import view.ExibeContas;
+import view.Extrato;
 import view.MenuPrincipal;
 
 /**
@@ -37,6 +38,10 @@ public class MenuPrincipalController {
         Debito exibeDebito = new Debito();
         exibeDebito.setVisible(true);
         
+    }
+    public void showExtrato(){
+        Extrato exibeExtrato = new Extrato();
+        exibeExtrato.setVisible(true);
     }
     
 }

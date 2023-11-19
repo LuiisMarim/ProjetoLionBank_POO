@@ -16,6 +16,7 @@ import view.CriarNovasContas;
  * @author Pichau
  */
 public class ContaCorrente {
+    
     public void criaContaCorre(double valor, int cpf) throws SQLException
     {
         String corre = "corrente";

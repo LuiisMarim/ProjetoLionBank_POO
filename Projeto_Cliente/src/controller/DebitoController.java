@@ -66,8 +66,7 @@ public class DebitoController {
                 Usuario usuarioDebitado = new Usuario (novoSaldo,corre,cpf);
                 usuarioDao.updateNovaContaCorrente(usuarioDebitado);
                 view.getPainel_saldo().setText("");
-
-                
+   
                 
             }else{
                 JOptionPane.showMessageDialog(null, "Limite da conta corrente atingido ou conta inexistente, entre em contado com seu gerente");

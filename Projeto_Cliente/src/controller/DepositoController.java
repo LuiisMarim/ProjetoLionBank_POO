@@ -19,7 +19,7 @@ public class DepositoController {
     }
     public void exibeSaldos() throws SQLException{
            
-        String cpf_t = view.getTxt_cpf().getText();
+        String cpf_t = view.getTxt_cpf1().getText();
         int cpf = Integer.parseInt(cpf_t);
         Usuario usuario = new Usuario (cpf);
         Connection conexao =  new Conexao().getConnection();  
@@ -58,7 +58,7 @@ public class DepositoController {
                 Usuario usuarioDepositado = new Usuario (conta,corre,cpf);
                 usuarioDao.updateNovaContaCorrente(usuarioDepositado);
                 view.getPainel_saldo().setText("");
-                JOptionPane.showMessageDialog(null, "Seu novo saldo para conta corrente é: "+ conta);
+                JOptionPane.showMessageDialog(null, "FEITO !");
             
             }else{
                 view.getPainel_saldo().setText("Conta não existe! Entre em contato com o seu Gerente para abrir uma nova conta LION CORRENTE");
@@ -87,7 +87,7 @@ public class DepositoController {
                 Usuario usuarioDepositado = new Usuario (conta,corre,cpf);
                 usuarioDao.updateNovaContaSalario(usuarioDepositado);
                 view.getPainel_saldo().setText("");
-                JOptionPane.showMessageDialog(null, "Seu novo saldo para conta salário é: "+ conta);
+                JOptionPane.showMessageDialog(null, "FEITO !");
             
             }else{
                 view.getPainel_saldo().setText("Conta não existe! Entre em contato com o seu Gerente para abrir uma nova conta LION SALÁRIO");
@@ -116,7 +116,7 @@ public class DepositoController {
                 Usuario usuarioDepositado = new Usuario (conta,corre,cpf);
                 usuarioDao.updateNovaContaPoupanca(usuarioDepositado);
                 view.getPainel_saldo().setText("");
-                JOptionPane.showMessageDialog(null, "Seu novo saldo para conta poupança é: "+ conta);
+                JOptionPane.showMessageDialog(null, "FEITO !");
             
             }else{
                 view.getPainel_saldo().setText("Conta não existe! Entre em contato com o seu Gerente para abrir uma nova conta LION POUPANÇA");
