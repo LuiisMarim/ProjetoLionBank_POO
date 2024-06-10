@@ -67,9 +67,11 @@ Dados solicitados para deposito:<br/>
 - A codificação não oferece nenhuma opção para extrato. Existiu uma tentativa falha. 😬
 
 ## Vídeo de demonstração. 🎬
-CLIQUE AQUI ⬇️
+<p align = "middle">
+ CLIQUE AQUI ⬇️
 <p align = "middle"
- 
+    
+
 [![Assista ao vídeo](https://img.youtube.com/vi/BSzbpWOA5iY/0.jpg)](https://www.youtube.com/watch?v=BSzbpWOA5iY?si=C5_kUPuPhHLXdv6a)
 
 >
