@@ -16,7 +16,7 @@ O projeto consiste em uma aplicação de um sistema bancário em Java utilizando
 ## Funcionalidades. 📋
 
 #### O projeto apresenta. 🎯
-- Uma interface gráfica com usuário para o cliente.
+- Uma interface gráfica com usuário para o gerente.
 - Uma interface gráfica com usuário para o cliente.
 
 #### A interface gráfica com usuário do gerente do banco contém as seguintes operações: 💼
