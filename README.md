@@ -1,5 +1,5 @@
 # Lion Bank em JAVA. ♨️
-Uma aplicação acadêmica de Java em POO e conceitos básicos de banco de dados com PostgreSQL. ⚒️
+Uma aplicação acadêmica de Java com POO e conceitos básicos de banco de dados com PostgreSQL. ⚒️
 
 ## Sobre o desenvolvimento. 🖥️
 O projeto consiste em uma aplicação de um sistema bancário em Java utilizando o framework Modelo-Visão-Controlador (MVC) e o padrão de acesso a dados (DAO) para gerenciar as operações bancárias.
